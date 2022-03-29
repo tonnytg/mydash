@@ -1,0 +1,20 @@
+#Logs
+*.log
+
+#Enviroments
+*.env
+.env
+
+#IDE
+.idea
+
+#Packages
+node_modules
+
+#Swap files
+~*
+
+#Keys
+*.key
+id_rsa
+id_rsa.pub
