@@ -4,10 +4,9 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import {createTheme, ThemeProvider} from "@mui/material";
+import { createTheme, ThemeProvider} from "@mui/material";
 import MuiFadeMenu from "./MuiFadeMenu";
+import { useNavigate } from "react-router-dom";
 
 const darkTheme = createTheme({
     palette: {
@@ -18,29 +17,29 @@ const darkTheme = createTheme({
     },
 });
 
-export default function ButtonAppBar() {
+export default function MuiNavbar() {
+
+    const history = useNavigate();
+    function handleSubmit(e:any) {
+        e.preventDefault();
+        history(e.target.id);
+    }
+
     return (
-        <Box sx={{ flexGrow: 1 }}>
-            <ThemeProvider theme={darkTheme}>
-            <AppBar position="static">
-                <Toolbar>
-                    <IconButton
-                        size="large"
-                        edge="start"
-                        color="inherit"
-                        aria-label="menu"
-                        sx={{ mr: 2 }}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        MyDash
-                    </Typography>
-                    <Button color="inherit">Login</Button>
-                </Toolbar>
-            </AppBar>
-            </ThemeProvider>
-            <MuiFadeMenu />
-        </Box>
+        <div>
+            <Box sx={{ flexGrow: 4 }}>
+                <ThemeProvider theme={darkTheme}>
+                <AppBar position="absolute">
+                    <Toolbar>
+                        <MuiFadeMenu />
+                        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                            MyDash
+                        </Typography>
+                        <Button color="inherit" id="login" onClick={handleSubmit}>Login</Button>
+                    </Toolbar>
+                </AppBar>
+                </ThemeProvider>
+            </Box>
+        </div>
     );
 }
