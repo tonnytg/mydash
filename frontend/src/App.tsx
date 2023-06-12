@@ -47,8 +47,7 @@ const App: React.FC = () => {
                         <Route path="/" element={<Page title="Home"/>} />
                         <Route path="login" element={<Page title="Login"/>} />
                         <Route path="about" element={<Page title="Sobre"/>} />
-                        <Route path="sobre" element={<Page title="Sobre"/>} />
-                        <Route path="logout" element={<Page title="logout"/>} />
+                        <Route path="logout" element={<Page title="Logout"/>} />
                     </Routes>
                 </Container>
             </Box>
